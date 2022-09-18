@@ -28,7 +28,7 @@ public:
     int getCurrentLength() const override; // get the current getCurrentLength of the list
     int search(const T &x) const override; // return the position of x
 
-    T *getData(int i) const override; // return a pointer to the ith element, i start from 1
+    T *getDataPointer(int i) const override; // return a pointer to the ith element, i start from 1
     bool setData(int i,
                  T &x) override; // set the ith element to x, i start from 1, return true if success, otherwise return false
 

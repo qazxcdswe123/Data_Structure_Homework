@@ -81,7 +81,7 @@ int SeqList<T>::search(const T &x) const {
 }
 
 template<class T>
-T *SeqList<T>::getData(int i) const {
+T *SeqList<T>::getDataPointer(int i) const {
     return (i > 0 && i <= lastPosition) ? &element[i - 1] : nullptr;
 }
 
@@ -94,6 +94,7 @@ bool SeqList<T>::setData(int i, T &x) {
     return true;
 }
 
+// i start from 1
 template<class T>
 bool SeqList<T>::insert(int i, T &x) {
     if (i < 1 || i > lastPosition + 2) {

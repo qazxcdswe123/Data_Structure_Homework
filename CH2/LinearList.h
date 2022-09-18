@@ -14,7 +14,7 @@ public:
     virtual int getTotalSize() const = 0;             // return the maximum number of elements in the list
     virtual int getCurrentLength() const = 0;           // return the number of elements in the list
     virtual int search(const T &x) const = 0; // return the position of x
-    virtual T *getData(int i) const = 0;      // return a pointer to the ith element
+    virtual T *getDataPointer(int i) const = 0;      // return a pointer to the ith element
     virtual bool setData(int i, T &x) = 0;    // set the ith element to x
     virtual bool insert(int i, T &x) = 0;     // insert x just after the ith element
     virtual bool remove(int i, T &x) = 0;     // remove the ith element and return it in x
