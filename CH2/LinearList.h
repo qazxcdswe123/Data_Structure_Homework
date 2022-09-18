@@ -9,7 +9,7 @@ template<class T>
 class LinearList {
 public:
 //    LinearList(); Abstract class can omit constructor
-    virtual ~LinearList() = default;
+//    virtual ~LinearList() = default;
 
     virtual int size() const = 0;             // return the maximum number of elements in the list
     virtual int length() const = 0;           // return the number of elements in the list

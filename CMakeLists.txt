@@ -4,5 +4,6 @@ project(DS_New)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(DS_New main.cpp)
+add_executable(CH2 CH2/LinearList.cpp)
 
 add_subdirectory(CH2)
