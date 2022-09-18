@@ -17,33 +17,27 @@ protected:
     int lastPosition;
 
     void resize(const int newSize);
+
 public:
     explicit SeqList(int size = defaultSize);
 
     SeqList(const SeqList<T> &L); // copy constructor
-    ~SeqList() { delete[] element; }
+    ~SeqList(); // destructor
 
-    int size() const { return maxSize; } // get the maximum size of the list
-    int length() const { return lastPosition + 1; } // get the current length of the list
-    int search(const T &x) const; // return the position of x
-    int locate(int i) const; // return the position of the ith element
+    int getTotalSize() const override; // get the maximum size of the list
+    int getCurrentLength() const override; // get the current getCurrentLength of the list
+    int search(const T &x) const override; // return the position of x
 
-    T *getData(int i) const {
-        return (i > 0 && i <= lastPosition) ? &element[i - 1] : nullptr;
-    } // return a pointer to the ith element, i start from 1
-    void setData(int i, T &x) {
-        if (i > 0 && i <= lastPosition) element[i - 1] = x;
-    } // set the ith element to x, i start from 1
+    T *getData(int i) const override; // return a pointer to the ith element, i start from 1
+    bool setData(int i,
+                 T &x) override; // set the ith element to x, i start from 1, return true if success, otherwise return false
 
-    bool insert(int i, T &x); // insert x just after the ith element
-    bool remove(int i, T &x); // remove the ith element and return it in x
-    bool isEmpty() const { return lastPosition == -1; } // return true if the list is empty, otherwise return false
-    bool isFull() const {
-        return lastPosition == maxSize - 1;
-    } // return true if the list is full, otherwise return false
-    void input(); // add an element to the end of the list
-    void output() const; // output the elements to the screen
-    void sort(); // sort the elements in the list
+    bool insert(int i, T &x) override; // insert x just after the ith element
+    bool remove(int i, T &x) override; // remove the ith element and return it in x
+    bool isEmpty() const override; // return true if the list is empty, otherwise return false
+    bool isFull() const override; // return true if the list is full, otherwise return false
+    void print() const override; // print the elements to the screen
+    void sort() override; // sort the elements in the list
 
     SeqList<T> &operator=(const SeqList<T> &L); // copy the elements of L to this list
 };
