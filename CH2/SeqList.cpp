@@ -141,7 +141,7 @@ bool SeqList<T>::isFull() const {
 template<class T>
 void SeqList<T>::print() const {
     for (int i = 0; i <= lastPosition; ++i) {
-        std::cout << "#" << i + 1 << element[i] << std::endl;
+        std::cout << "#" << i + 1 << ": " << element[i] << std::endl;
     }
     std::cout << std::endl;
 }

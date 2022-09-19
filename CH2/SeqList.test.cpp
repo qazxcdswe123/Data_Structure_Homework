@@ -13,12 +13,21 @@ TEST_CASE("Set Up") {
     REQUIRE_FALSE(list.isFull());
 
     SECTION("Inserting numbers") {
+        int minusOne = -1;
+        REQUIRE_FALSE(list.insert(minusOne, minusOne));
         for (int i = 0; i < 10; ++i) {
             REQUIRE(list.insert(i + 1, i));
         }
 
         REQUIRE(list.getCurrentLength() == 10);
         REQUIRE(list.search(5) == 6);
+
+        SECTION("Insert after the list is full") {
+            int y = 10;
+            REQUIRE(list.insert(11, y));
+            int z = 5;
+            REQUIRE(list.insert(6, z));
+        }
 
         SECTION("Checking search related function") {
             REQUIRE(list.search(10) == -1); // not found
@@ -49,6 +58,7 @@ TEST_CASE("Set Up") {
             for (int i = 0; i < 10; ++i) {
                 int x;
                 REQUIRE(list.remove(1, x));
+                REQUIRE_FALSE(list.remove(-1, x));
                 REQUIRE(x == i);
                 REQUIRE(list.getCurrentLength() == prevLength - 1);
                 prevLength--;
@@ -74,6 +84,10 @@ TEST_CASE("Set Up") {
             REQUIRE(list2.search(10) == -1);
             REQUIRE(*list2.getDataPointer(5) == 4);
             REQUIRE(list2.getDataPointer(10) == nullptr);
+        }
+
+        SECTION("Check print function") {
+            list.print();
         }
     }
 
