@@ -4,7 +4,7 @@
 #include "SeqList.cpp"
 #include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("Set Up") {
+TEST_CASE("Set Up", "[SeqList]") {
     SeqList<int> list(10);
 
     REQUIRE(list.getTotalSize() == 10);
