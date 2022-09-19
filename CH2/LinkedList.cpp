@@ -16,7 +16,7 @@ LinkedList<T>::~LinkedList() {
 
 template<class T>
 LinkedList<T> LinkedList<T>::newNode() {
-    LinkedListNode<T> *p = new LinkedListNode<T>;
+    auto *p = new LinkedListNode<T>;
     p->next = nullptr;
     return p;
 }
