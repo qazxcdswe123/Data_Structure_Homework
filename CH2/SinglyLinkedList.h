@@ -2,15 +2,15 @@
 // Created by yn on 19/9/2022.
 //
 
-#ifndef CH2_LINKEDLIST_H
-#define CH2_LINKEDLIST_H
+#ifndef CH2_SINGLYLINKEDLIST_H
+#define CH2_SINGLYLINKEDLIST_H
 
 template<class T>
-class LinkedList;
+class SinglyLinkedList;
 
 template<class T>
 class LinkedListNode {
-    friend class LinkedList<T>;
+    friend class SinglyLinkedList<T>;
 
 protected:
     T data;
@@ -18,16 +18,16 @@ protected:
 };
 
 template<class T>
-class LinkedList {
+class SinglyLinkedList {
 private:
     LinkedListNode<T> *head = nullptr;
     int currentLength = 0;
 
 public:
-//    LinkedList();
-    ~LinkedList();
+//    SinglyLinkedList();
+    ~SinglyLinkedList();
 
-    bool insert(int position, T value);
+    bool insertAfterPosition(int position, T value);
     bool remove(int position);
     int getCurrentLength() const;
     int search(const T x) const;
@@ -35,4 +35,4 @@ public:
 };
 
 
-#endif //CH2_LINKEDLIST_H
+#endif //CH2_SINGLYLINKEDLIST_H

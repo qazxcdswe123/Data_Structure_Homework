@@ -2,10 +2,10 @@
 // Created by yn on 19/9/2022.
 //
 
-#include "LinkedList.h"
+#include "SinglyLinkedList.h"
 
 template<class T>
-LinkedList<T>::~LinkedList() {
+SinglyLinkedList<T>::~SinglyLinkedList() {
     LinkedListNode<T> *p = head;
     while (p != nullptr) {
         LinkedListNode<T> *q = p;
@@ -17,7 +17,7 @@ LinkedList<T>::~LinkedList() {
 
 
 template<class T>
-bool LinkedList<T>::insertAfterPosition(int position, T value) {
+bool SinglyLinkedList<T>::insertAfterPosition(int position, T value) {
     if (position < 0 || position > currentLength) {
         return false;
     }
@@ -40,7 +40,7 @@ bool LinkedList<T>::insertAfterPosition(int position, T value) {
 }
 
 template<class T>
-bool LinkedList<T>::remove(int position) {
+bool SinglyLinkedList<T>::remove(int position) {
     if (position < 0 || position > currentLength) {
         return false;
     }
@@ -62,12 +62,12 @@ bool LinkedList<T>::remove(int position) {
 }
 
 template<class T>
-int LinkedList<T>::getCurrentLength() const {
+int SinglyLinkedList<T>::getCurrentLength() const {
     return currentLength;
 }
 
 template<class T>
-int LinkedList<T>::search(const T x) const {
+int SinglyLinkedList<T>::search(const T x) const {
     LinkedListNode<T> *p = head;
     int i = 0;
     while (p != nullptr) {
@@ -81,15 +81,10 @@ int LinkedList<T>::search(const T x) const {
 }
 
 template<class T>
-T LinkedList<T>::getDataAtPosition(int position) const {
+T SinglyLinkedList<T>::getDataAtPosition(int position) const {
     LinkedListNode<T> *p = head;
     for (int i = 0; i < position; ++i) {
         p = p->next;
     }
     return p->data;
-}
-
-template<class T>
-bool LinkedList<T>::insertBeforeHead(T value) {
-
 }
