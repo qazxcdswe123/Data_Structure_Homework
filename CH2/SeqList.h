@@ -32,7 +32,7 @@ public:
     bool setData(int i,
                  T &x) override; // set the ith element to x, i start from 1, return true if success, otherwise return false
 
-    bool insert(int i, T &x) override; // insert x just after the ith element
+    bool insert(int i, T &x) override; // insertAfterPosition x just after the ith element
     bool remove(int i, T &x) override; // remove the ith element and return it in x
     bool isEmpty() const override; // return true if the list is empty, otherwise return false
     bool isFull() const override; // return true if the list is full, otherwise return false

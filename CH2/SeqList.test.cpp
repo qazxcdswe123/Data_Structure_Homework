@@ -7,10 +7,12 @@
 TEST_CASE("SeqList SetUp", "[SeqList]") {
     SeqList<int> list(10);
 
-    REQUIRE(list.getTotalSize() == 10);
-    REQUIRE(list.getCurrentLength() == 0);
-    REQUIRE(list.isEmpty());
-    REQUIRE_FALSE(list.isFull());
+    SECTION("Utilities Check") {
+        REQUIRE(list.getTotalSize() == 10);
+        REQUIRE(list.getCurrentLength() == 0);
+        REQUIRE(list.isEmpty());
+        REQUIRE_FALSE(list.isFull());
+    }
 
     SECTION("Inserting numbers") {
         int minusOne = -1;

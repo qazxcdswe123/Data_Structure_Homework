@@ -20,19 +20,18 @@ protected:
 template<class T>
 class LinkedList {
 private:
-    LinkedListNode<T> *first = nullptr;
+    LinkedListNode<T> *head = nullptr;
     int currentLength = 0;
 
 public:
 //    LinkedList();
     ~LinkedList();
 
-    LinkedList<T> newNode();
-    bool insert(int position, T &value);
+    bool insert(int position, T value);
     bool remove(int position);
     int getCurrentLength() const;
-    int search(const T &x) const;
-    T getData(int position) const;
+    int search(const T x) const;
+    T getDataAtPosition(int position) const;
 };
 
 

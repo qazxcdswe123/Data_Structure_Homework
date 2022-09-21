@@ -6,7 +6,7 @@
 
 template<class T>
 LinkedList<T>::~LinkedList() {
-    LinkedListNode<T> *p = first;
+    LinkedListNode<T> *p = head;
     while (p != nullptr) {
         LinkedListNode<T> *q = p;
         p = p->next;
@@ -14,27 +14,28 @@ LinkedList<T>::~LinkedList() {
     }
 }
 
-template<class T>
-LinkedList<T> LinkedList<T>::newNode() {
-    auto *p = new LinkedListNode<T>;
-    p->next = nullptr;
-    return p;
-}
+
 
 template<class T>
-bool LinkedList<T>::insert(int position, T &value) {
+bool LinkedList<T>::insertAfterPosition(int position, T value) {
     if (position < 0 || position > currentLength) {
         return false;
     }
-    LinkedListNode<T> *p = first;
-    for (int i = 0; i < position - 1; ++i) {
-        p = p->next;
+    LinkedListNode<T> *p = head;
+    if (head == nullptr || position == 0) {
+        head = new LinkedListNode<T>;
+        head->data = value;
+        head->next = p;
+    } else {
+        for (int i = 0; i < position - 1; ++i) {
+            p = p->next;
+        }
+        auto *q = new LinkedListNode<T>;
+        q->data = value;
+        q->next = p->next;
+        p->next = q;
     }
-    LinkedListNode<T> *q = newNode();
-    q->data = value;
-    q->next = p->next;
-    p->next = q;
-    ++currentLength;
+    currentLength++;
     return true;
 }
 
@@ -43,14 +44,20 @@ bool LinkedList<T>::remove(int position) {
     if (position < 0 || position > currentLength) {
         return false;
     }
-    LinkedListNode<T> *p = first;
-    for (int i = 0; i < position - 1; ++i) {
-        p = p->next;
+    if (position == 0) {
+        LinkedListNode<T> *p = head;
+        head = head->next;
+        delete p;
+    } else {
+        LinkedListNode<T> *p = head;
+        for (int i = 0; i < position - 1; ++i) {
+            p = p->next;
+        }
+        LinkedListNode<T> *q = p->next;
+        p->next = q->next;
+        delete q;
     }
-    LinkedListNode<T> *q = p->next;
-    p->next = q->next;
-    delete q;
-    --currentLength;
+    currentLength--;
     return true;
 }
 
@@ -60,8 +67,8 @@ int LinkedList<T>::getCurrentLength() const {
 }
 
 template<class T>
-int LinkedList<T>::search(const T &x) const {
-    LinkedListNode<T> *p = first;
+int LinkedList<T>::search(const T x) const {
+    LinkedListNode<T> *p = head;
     int i = 0;
     while (p != nullptr) {
         if (p->data == x) {
@@ -70,14 +77,19 @@ int LinkedList<T>::search(const T &x) const {
         p = p->next;
         ++i;
     }
-    return -1;
+    return -1; // not found
 }
 
 template<class T>
-T LinkedList<T>::getData(int position) const {
-    LinkedListNode<T> *p = first;
+T LinkedList<T>::getDataAtPosition(int position) const {
+    LinkedListNode<T> *p = head;
     for (int i = 0; i < position; ++i) {
         p = p->next;
     }
     return p->data;
+}
+
+template<class T>
+bool LinkedList<T>::insertBeforeHead(T value) {
+
 }
