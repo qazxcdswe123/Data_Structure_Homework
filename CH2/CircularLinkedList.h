@@ -33,7 +33,7 @@ public:
     bool remove(int position);
     bool isEmpty() const;
     int getCurrentLength() const;
-    int search(const T x) const;
+    int search(const T valueToSearch) const;
     T getDataAtPosition(int position) const;
     void print() const;
 };

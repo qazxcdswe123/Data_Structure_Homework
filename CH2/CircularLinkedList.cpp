@@ -24,8 +24,8 @@ bool CircularLinkedList<T>::insertAfterPosition(int position, T value) {
     if (head == nullptr || position == 0) {
         head = new LinkedListNode<T>;
         head->data = value;
-        head->next = head;
-        head->prev = head;
+        head->next = p;
+        head->prev = p;
     } else {
         for (int i = 0; i < position - 1; ++i) {
             p = p->next;
@@ -71,10 +71,9 @@ template<class T>
 void CircularLinkedList<T>::print() const {
     LinkedListNode<T> *p = head;
     for (int i = 0; i < currentLength; ++i) {
-        std::cout << p->data << " ";
+        std::cout << "#" << i << ": " << p->data << std::endl;
         p = p->next;
     }
-    std::cout << std::endl;
 }
 
 
@@ -90,10 +89,10 @@ int CircularLinkedList<T>::getCurrentLength() const {
 }
 
 template<class T>
-int CircularLinkedList<T>::search(const T x) const {
+int CircularLinkedList<T>::search(const T valueToSearch) const {
     LinkedListNode<T> *p = head;
     for (int i = 0; i < currentLength; ++i) {
-        if (p->data == x) {
+        if (p->data == valueToSearch) {
             return i;
         }
         p = p->next;
