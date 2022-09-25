@@ -28,5 +28,4 @@ TEST_CASE("SinglyLinkedList SetUp", "[SinglyLinkedList]") {
         REQUIRE(LL.remove(0));
         REQUIRE(LL.getCurrentLength() == 0);
     }
-
 }
