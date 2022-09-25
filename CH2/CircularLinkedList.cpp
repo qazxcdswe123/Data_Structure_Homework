@@ -77,7 +77,6 @@ void CircularLinkedList<T>::print() const {
 }
 
 
-
 template<class T>
 bool CircularLinkedList<T>::isEmpty() const {
     return currentLength == 0;
