@@ -17,7 +17,7 @@ CircularQueue<T>::~CircularQueue() {
 }
 
 template<class T>
-bool CircularQueue<T>::enQueue(T x) {
+bool CircularQueue<T>::enqueue(T x) {
 if (isFull()) {
         return false;
     }
@@ -28,7 +28,7 @@ if (isFull()) {
 }
 
 template<class T>
-T CircularQueue<T>::deQueue() {
+T CircularQueue<T>::dequeue() {
     if (isEmpty()) {
         throw "Queue is empty";
     }
@@ -39,7 +39,7 @@ T CircularQueue<T>::deQueue() {
 }
 
 template<class T>
-T CircularQueue<T>::getHead() const {
+T CircularQueue<T>::getFront() const {
     if (isEmpty()) {
         throw "Queue is empty";
     }

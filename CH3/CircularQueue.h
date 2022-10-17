@@ -21,9 +21,9 @@ private:
 public:
     explicit CircularQueue(int size = 10);
     ~CircularQueue();
-    bool enQueue(T x) final;
-    T deQueue() final;
-    T getHead() const final;
+    bool enqueue(T x) final;
+    T dequeue() final;
+    T getFront() const final;
     void makeEmpty();
     bool isEmpty() const final;
     bool isFull() const final;

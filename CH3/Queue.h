@@ -9,9 +9,9 @@
 template<class T>
 class Queue {
 public:
-    virtual bool enQueue(T x) = 0;
-    virtual T deQueue() = 0;
-    virtual T getHead() const = 0;
+    virtual bool enqueue(T x) = 0;
+    virtual T dequeue() = 0;
+    virtual T getFront() const = 0;
     virtual bool isEmpty() const = 0;
     virtual bool isFull() const = 0;
     virtual int getSize() const = 0;
