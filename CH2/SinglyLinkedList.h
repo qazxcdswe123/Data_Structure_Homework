@@ -12,7 +12,7 @@ template<class T>
 class LinkedListNode {
     friend class SinglyLinkedList<T>;
 
-protected:
+public:
     T data;
     LinkedListNode *next;
 };

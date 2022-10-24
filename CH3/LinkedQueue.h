@@ -13,6 +13,7 @@
 template<class T>
 class LinkedQueue: public Queue<T> {
 private:
+    friend class LinkedQueue<T>;
     LinkedListNode<T> *front = nullptr;
     LinkedListNode<T> *rear = nullptr;
 

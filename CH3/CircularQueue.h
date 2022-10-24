@@ -26,7 +26,7 @@ public:
     T getFront() const final;
     void makeEmpty();
     bool isEmpty() const final;
-    bool isFull() const final;
+    bool isFull() const;
     int getSize() const final;
     friend std::ostream &operator<<(std::ostream &os, const CircularQueue<T> &queue);
 };

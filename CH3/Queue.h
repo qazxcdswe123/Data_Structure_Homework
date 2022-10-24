@@ -13,7 +13,8 @@ public:
     virtual T dequeue() = 0;
     virtual T getFront() const = 0;
     virtual bool isEmpty() const = 0;
-    virtual bool isFull() const = 0;
+//    virtual bool isFull() const = 0;
+//    LinkedQueue doesn't have this method
     virtual int getSize() const = 0;
 };
 

@@ -3,8 +3,8 @@
 //
 
 #include "CircularQueue.cpp"
+#include "LinkedQueue.cpp"
 
-#include <iostream>
 #include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("CircularQueue", "[Queue]") {
@@ -20,6 +20,40 @@ TEST_CASE("CircularQueue", "[Queue]") {
             REQUIRE(queue.getFront() == 1);
             REQUIRE(!queue.isEmpty());
             REQUIRE(!queue.isFull());
+        }
+
+        SECTION("Testing DeQueue") {
+            REQUIRE(queue.dequeue() == 1);
+            REQUIRE(queue.dequeue() == 2);
+            REQUIRE(queue.dequeue() == 3);
+            REQUIRE(queue.isEmpty());
+        }
+
+        SECTION("Testing Make Empty") {
+            queue.makeEmpty();
+            REQUIRE(queue.isEmpty());
+        }
+
+        SECTION("Testing Exception") {
+            queue.makeEmpty();
+            REQUIRE_THROWS_AS(queue.dequeue(), const char *);
+            REQUIRE_THROWS_AS(queue.getFront(), const char *);
+        }
+    }
+}
+
+TEST_CASE("LinkedQueue", "[Queue]") {
+    SECTION("Init") {
+        LinkedQueue<int> queue;
+        REQUIRE(queue.isEmpty());
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        SECTION("Testing Utility") {
+            REQUIRE(queue.getSize() == 3);
+            REQUIRE(queue.getFront() == 1);
+            REQUIRE(!queue.isEmpty());
         }
 
         SECTION("Testing DeQueue") {
