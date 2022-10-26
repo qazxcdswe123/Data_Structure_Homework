@@ -5,6 +5,7 @@
 #include "CircularQueue.cpp"
 #include "LinkedQueue.cpp"
 #include "PriorityQueue.cpp"
+#include "DoubleEndedQueue.cpp"
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -111,6 +112,45 @@ TEST_CASE("PriorityQueue", "[Queue]") {
             queue.makeEmpty();
             REQUIRE_THROWS_AS(queue.dequeue(), const char *);
             REQUIRE_THROWS_AS(queue.getFront(), const char *);
+        }
+    }
+}
+
+TEST_CASE("DoubleEndedQueue", "[Queue]") {
+    SECTION("Init") {
+        DoubleEndedQueue<int> queue(10);
+        REQUIRE(queue.isEmpty());
+        queue.enQueueFront(1);
+        queue.enQueueFront(2);
+        queue.enQueueFront(3);
+        queue.enQueueRear(4);
+        queue.enQueueRear(5);
+        queue.enQueueRear(6);
+
+        SECTION("Testing Utility") {
+            REQUIRE(!queue.isEmpty());
+            REQUIRE(!queue.isFull());
+        }
+
+        SECTION("Testing DeQueue") {
+            REQUIRE(queue.deQueueFront() == 3);
+            REQUIRE(queue.deQueueFront() == 2);
+            REQUIRE(queue.deQueueFront() == 1);
+            REQUIRE(queue.deQueueRear() == 6);
+            REQUIRE(queue.deQueueRear() == 5);
+            REQUIRE(queue.deQueueRear() == 4);
+            REQUIRE(queue.isEmpty());
+        }
+
+        SECTION("Testing Make Empty") {
+            queue.makeEmpty();
+            REQUIRE(queue.isEmpty());
+        }
+
+        SECTION("Testing Exception") {
+            queue.makeEmpty();
+            REQUIRE_THROWS_AS(queue.deQueueFront(), const char *);
+            REQUIRE_THROWS_AS(queue.deQueueRear(), const char *);
         }
     }
 }
