@@ -12,6 +12,5 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(tests test.cpp)
 add_executable(CH2_tests SeqList.test.cpp SinglyLinkedList.test.cpp CircularLinkedList.test.cpp)
 target_link_libraries(CH2_tests PRIVATE Catch2::Catch2WithMain)
