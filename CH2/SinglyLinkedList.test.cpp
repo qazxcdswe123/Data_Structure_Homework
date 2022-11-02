@@ -22,6 +22,25 @@ TEST_CASE("SinglyLinkedList SetUp", "[SinglyLinkedList]") {
         }
     }
 
+    SECTION("Testing Sort and remove duplicates") {
+        LL.insertAfterPosition(0, 10);
+        LL.insertAfterPosition(0, 5);
+        LL.insertAfterPosition(0, 5);
+        LL.insertAfterPosition(0, 5);
+        LL.insertAfterPosition(0, 2);
+        LL.insertAfterPosition(0, 4);
+        LL.insertAfterPosition(0, 6);
+        LL.insertAfterPosition(0, 7);
+        LL.insertAfterPosition(0, 8);
+        LL.insertAfterPosition(0, 9);
+        LL.insertAfterPosition(0, 0);
+        LL.print();
+        LL.sort();
+        LL.print();
+        LL.removeDuplicates();
+        LL.print();
+    }
+
     SECTION("Removing numbers") {
         REQUIRE(LL.insertAfterPosition(0, 0));
         REQUIRE(LL.getCurrentLength() == 1);

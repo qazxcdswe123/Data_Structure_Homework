@@ -177,3 +177,17 @@ if (this != &L) {
     return *this;
 }
 
+template<class T>
+void SeqList<T>::removeDuplicate() {
+    for (int i = 0; i < lastPosition; ++i) {
+        for (int j = i + 1; j <= lastPosition; ++j) {
+            if (element[i] == element[j]) {
+                for (int k = j; k <= lastPosition; ++k) {
+                    element[k - 1] = element[k];
+                }
+                lastPosition--;
+                j--;
+            }
+        }
+    }
+}

@@ -53,6 +53,15 @@ TEST_CASE("SeqList SetUp", "[SeqList]") {
                     REQUIRE(*list.getDataPointer(i) <= *list.getDataPointer(i + 1));
                 }
             }
+
+            SECTION("Checking remove duplicate function") {
+                list.insert(3, x);
+                list.insert(5, x);
+                REQUIRE(list.getCurrentLength() == 12); // 10 + 2
+
+                list.removeDuplicate();
+                REQUIRE(list.getCurrentLength() == 7); // after removing duplicate
+            }
         }
 
         SECTION("Removing numbers") {

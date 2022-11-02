@@ -3,6 +3,7 @@
 //
 
 #include "SinglyLinkedList.h"
+#include <iostream>
 
 template<class T>
 SinglyLinkedList<T>::~SinglyLinkedList() {
@@ -13,7 +14,6 @@ SinglyLinkedList<T>::~SinglyLinkedList() {
         delete q;
     }
 }
-
 
 
 template<class T>
@@ -87,4 +87,50 @@ T SinglyLinkedList<T>::getDataAtPosition(int position) const {
         p = p->next;
     }
     return p->data;
+}
+
+template<class T>
+void SinglyLinkedList<T>::sort() {
+    // bubble sort
+    LinkedListNode<T> *p = head;
+    for (int i = 0; i < currentLength - 1; ++i) {
+        LinkedListNode<T> *q = p->next;
+        for (int j = i + 1; j < currentLength; ++j) {
+            if (q->data < p->data) {
+                T temp = p->data;
+                p->data = q->data;
+                q->data = temp;
+            }
+            q = q->next;
+        }
+        p = p->next;
+    }
+}
+
+template<class T>
+void SinglyLinkedList<T>::print() {
+    LinkedListNode<T> *p = head;
+    while (p != nullptr) {
+        std::cout << p->data << " ";
+        p = p->next;
+    }
+    std::cout << std::endl;
+}
+
+template<class T>
+void SinglyLinkedList<T>::removeDuplicates() {
+    LinkedListNode<T> *p = head;
+    while (p != nullptr) {
+        LinkedListNode<T> *q = p;
+        while (q->next != nullptr) {
+            if (q->next->data == p->data) {
+                LinkedListNode<T> *r = q->next;
+                q->next = r->next;
+                delete r;
+            } else {
+                q = q->next;
+            }
+        }
+        p = p->next;
+    }
 }

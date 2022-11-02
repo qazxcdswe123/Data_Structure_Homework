@@ -28,10 +28,20 @@ public:
     ~SinglyLinkedList();
 
     bool insertAfterPosition(int position, T value);
+
     bool remove(int position);
+
     int getCurrentLength() const;
+
     int search(const T x) const;
+
     T getDataAtPosition(int position) const;
+
+    void sort();
+
+    void print();
+
+    void removeDuplicates();
 };
 
 

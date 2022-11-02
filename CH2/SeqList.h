@@ -38,6 +38,7 @@ public:
     bool isFull() const override; // return true if the list is full, otherwise return false
     void print() const override; // print the elements to the screen
     void sort() override; // sort the elements in the list
+    void removeDuplicate(); // remove the duplicate elements in the list
 
     SeqList<T> &operator=(const SeqList<T> &L); // copy the elements of L to this list
 };
