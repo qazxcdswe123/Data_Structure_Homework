@@ -24,8 +24,38 @@ struct TreeNode {
 
 template<class T>
 class BinaryTree {
-private:
+public:
+    explicit BinaryTree(T value);
 
+    ~BinaryTree();
+
+    void deleteTree(TreeNode<T> *&node);
+
+
+
+    void insert(T value, TreeNode<T> *node, bool isLeftChild);
+
+    void inOrderTreeWalk(TreeNode<T> *node);
+
+    void preOrderTreeWalk(TreeNode<T> *node);
+
+    void postOrderTreeWalk(TreeNode<T> *node);
+
+    void levelOrderTreeWalk(TreeNode<T> *node);
+
+    TreeNode<T> *getRoot();
+
+    bool search(T value, TreeNode<T> *node);
+
+    int getNumberOfNodes(TreeNode<T> *node);
+
+    int getNumberOfLeaves(TreeNode<T> *node);
+
+    int getHeight(TreeNode<T> *node);
+
+
+private:
+    TreeNode<T> *root;
 };
 
 #endif //CH5_BINARYTREE_H
