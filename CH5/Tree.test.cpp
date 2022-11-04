@@ -2,6 +2,7 @@
 // Created by yn on 31/10/2022.
 //
 #include "BinaryTree.cpp"
+#include "HuffmanTree.cpp"
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -42,5 +43,14 @@ TEST_CASE("BinaryTree", "[BinaryTree]") {
             REQUIRE(tree.getNumberOfNodes(tree.getRoot()) == 7);
             REQUIRE(tree.getHeight(tree.getRoot()) == 3);
         }
+    }
+}
+
+TEST_CASE("Huffman Tree", "[HuffmanTree]") {
+    SECTION("init") {
+        HuffmanTree<int> Tree;
+        int dataArray[] = {2, 5, 3, 1};
+        int weightArray[] = {7, 5, 2, 4};
+        Tree.createHuffmanTree(dataArray, weightArray, 4);
     }
 }
