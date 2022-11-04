@@ -7,8 +7,8 @@ template <class T>
 DoubleEndedQueue<T>::DoubleEndedQueue(int size) {
     maxSize = size;
     dataArray = new T[maxSize];
-    front = -1;
-    rear = -1;
+    front = 0;
+    rear = 0;
 }
 
 template <class T>
@@ -18,12 +18,12 @@ DoubleEndedQueue<T>::~DoubleEndedQueue() {
 
 template <class T>
 bool DoubleEndedQueue<T>::isEmpty() const {
-    return front == -1 && rear == -1;
+    return front == rear;
 }
 
 template <class T>
 bool DoubleEndedQueue<T>::isFull() const {
-    return (front == 0 && rear == maxSize - 1) || (front == rear + 1);
+    return (rear + 1) % maxSize == front;
 }
 
 template <class T>
@@ -31,13 +31,7 @@ void DoubleEndedQueue<T>::enQueueFront(T data) {
     if (isFull()) {
         throw "Queue is full";
     }
-    if (isEmpty()) {
-        front = rear = 0;
-    } else if (front == 0) {
-        front = maxSize - 1;
-    } else {
-        front--;
-    }
+    front = (front - 1 + maxSize) % maxSize;
     dataArray[front] = data;
 }
 
@@ -46,14 +40,8 @@ void DoubleEndedQueue<T>::enQueueRear(T data) {
     if (isFull()) {
         throw "Queue is full";
     }
-    if (isEmpty()) {
-        front = rear = 0;
-    } else if (rear == maxSize - 1) {
-        rear = 0;
-    } else {
-        rear++;
-    }
     dataArray[rear] = data;
+    rear = (rear + 1) % maxSize;
 }
 
 template <class T>
@@ -62,13 +50,7 @@ T DoubleEndedQueue<T>::deQueueFront() {
         throw "Queue is empty";
     }
     T data = dataArray[front];
-    if (front == rear) {
-        front = rear = -1;
-    } else if (front == maxSize - 1) {
-        front = 0;
-    } else {
-        front++;
-    }
+    front = (front + 1) % maxSize;
     return data;
 }
 
@@ -77,18 +59,11 @@ T DoubleEndedQueue<T>::deQueueRear() {
     if (isEmpty()) {
         throw "Queue is empty";
     }
-    T data = dataArray[rear];
-    if (front == rear) {
-        front = rear = -1;
-    } else if (rear == 0) {
-        rear = maxSize - 1;
-    } else {
-        rear--;
-    }
-    return data;
+    rear = (rear - 1 + maxSize) % maxSize;
+    return dataArray[rear];
 }
 
 template <class T>
 void DoubleEndedQueue<T>::makeEmpty() {
-    front = rear = -1;
+    front = rear = 0;
 }
