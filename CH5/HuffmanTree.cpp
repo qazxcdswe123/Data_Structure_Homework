@@ -29,7 +29,7 @@ HuffmanTree<T>::~HuffmanTree() {
 }
 
 template<class T>
-void HuffmanTree<T>::createHuffmanTree(T *data, int *weight, int size) {
+void HuffmanTree<T>::createHuffmanTree(T *data, const int *weight, int size) {
     auto *nodes = new HuffmanTreeNode<T>[size];
     // initialize nodes with their data and weight
     for (int i = 0; i < size; ++i) {
@@ -40,7 +40,8 @@ void HuffmanTree<T>::createHuffmanTree(T *data, int *weight, int size) {
         nodes[i].parent = nullptr;
     }
 
-    auto *nodeQueue = new std::priority_queue<HuffmanTreeNode<T>, std::vector<HuffmanTreeNode<T>>, std::greater<>>;
+    auto *nodeQueue = new std::priority_queue<HuffmanTreeNode<T>, std::vector<HuffmanTreeNode<T>>>;
+
     for (int i = 0; i < size; ++i) {
         nodeQueue->push(nodes[i]);
     }
