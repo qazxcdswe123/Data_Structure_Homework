@@ -7,22 +7,14 @@
 
 template<class T>
 struct HuffmanTreeNode {
-    HuffmanTreeNode(T value, int weight) {
-        this->data = value;
-        this->weight = weight;
-        this->leftChild = nullptr;
-        this->rightChild = nullptr;
-        this->parent = nullptr;
-    }
-
     T data;
-    int weight;
+    int count;
     HuffmanTreeNode<T> *leftChild;
     HuffmanTreeNode<T> *rightChild;
     HuffmanTreeNode<T> *parent;
 
     bool operator<(const HuffmanTreeNode<T> &node) const {
-        return weight < node.weight;
+        return count < node.count;
     }
 };
 
@@ -38,7 +30,11 @@ public:
 
     void deleteTree(HuffmanTreeNode<T> *&node);
 
-    int computeWeight(HuffmanTreeNode<T> *node);
+    int getHeight(HuffmanTreeNode<T> *node);
+
+    void computeWeightOfTree(HuffmanTreeNode<T> *node, int &weight);
+
+    HuffmanTreeNode<T> *getRoot();
 
 private:
     HuffmanTreeNode<T> *root;

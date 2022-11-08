@@ -4,7 +4,6 @@
 
 #include "HuffmanTree.h"
 #include <queue>
-#include <functional>
 
 template<class T>
 HuffmanTree<T>::HuffmanTree() {
@@ -31,16 +30,16 @@ HuffmanTree<T>::~HuffmanTree() {
 template<class T>
 void HuffmanTree<T>::createHuffmanTree(T *data, const int *weight, int size) {
     auto *nodes = new HuffmanTreeNode<T>[size];
-    // initialize nodes with their data and weight
+    // initialize nodes with their data and count
     for (int i = 0; i < size; ++i) {
         nodes[i].data = data[i];
-        nodes[i].weight = weight[i];
+        nodes[i].count = weight[i];
         nodes[i].leftChild = nullptr;
         nodes[i].rightChild = nullptr;
         nodes[i].parent = nullptr;
     }
 
-    auto *nodeQueue = new std::priority_queue<HuffmanTreeNode<T>, std::vector<HuffmanTreeNode<T>>>;
+    auto *nodeQueue = new std::priority_queue<HuffmanTreeNode<T>, std::vector<HuffmanTreeNode<T>>, std::less<HuffmanTreeNode<T>>>;
 
     for (int i = 0; i < size; ++i) {
         nodeQueue->push(nodes[i]);
@@ -56,7 +55,7 @@ void HuffmanTree<T>::createHuffmanTree(T *data, const int *weight, int size) {
 
         auto *newNode = new HuffmanTreeNode<T>;
         newNode->data = node1->data + node2->data;
-        newNode->weight = node1->weight + node2->weight;
+        newNode->count = node1->count + node2->count;
         newNode->leftChild = node1;
         newNode->rightChild = node2;
         newNode->parent = nullptr;
@@ -70,13 +69,34 @@ void HuffmanTree<T>::createHuffmanTree(T *data, const int *weight, int size) {
     root = new HuffmanTreeNode<T>;
     *root = nodeQueue->top();
     nodeQueue->pop();
+    delete nodeQueue;
+    delete[] nodes;
 }
 
 template<class T>
-int HuffmanTree<T>::computeWeight(HuffmanTreeNode<T> *node) {
+int HuffmanTree<T>::getHeight(HuffmanTreeNode<T> *node) {
     if (node == nullptr) {
-        return 0;
+        return -1;
     }
 
-    return node->weight + computeWeight(node->leftChild) + computeWeight(node->rightChild);
+    int leftHeight = getHeight(node->leftChild);
+    int rightHeight = getHeight(node->rightChild);
+
+    return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+}
+
+template<class T>
+void HuffmanTree<T>::computeWeightOfTree(HuffmanTreeNode<T> *node, int &weight) {
+    if (node == nullptr) {
+        return;
+    }
+    int height = getHeight(node);
+    weight += height * node->count;
+    computeWeightOfTree(node->leftChild, weight);
+    computeWeightOfTree(node->rightChild, weight);
+}
+
+template<class T>
+HuffmanTreeNode<T> *HuffmanTree<T>::getRoot() {
+    return root;
 }

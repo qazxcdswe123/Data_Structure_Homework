@@ -50,7 +50,22 @@ TEST_CASE("Huffman Tree", "[HuffmanTree]") {
     SECTION("init") {
         HuffmanTree<int> Tree;
         int dataArray[] = {2, 5, 3, 1};
-        int weightArray[] = {7, 5, 2, 4};
-        Tree.createHuffmanTree(dataArray, weightArray, 4);
+        int countArray[] = {7, 5, 2, 4};
+        Tree.createHuffmanTree(dataArray, countArray, 4);
+
+        SECTION("Testing getHeight") {
+            REQUIRE(Tree.getHeight(Tree.getRoot()) == 3);
+            REQUIRE(Tree.getHeight(Tree.getRoot()->leftChild) == 2);
+        }
+
+        SECTION("Verify that the count is correct") {
+            int originalWeight = 0;
+            for (int i = 0; i < 4; ++i) {
+                originalWeight += dataArray[i] * countArray[i];
+            }
+            int weight = 0;
+            Tree.computeWeightOfTree(Tree.getRoot(), weight);
+            REQUIRE(weight != originalWeight);
+        }
     }
 }
