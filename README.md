@@ -4,17 +4,19 @@
 
 1. [x] Linear List Abstract Class
 2. [x] Circular Linked List
+    - [x] Is circular linked list https://leetcode.cn/problems/linked-list-cycle/
 3. [x] Singly Linked List
-    - [x] Remove duplicate elements
-    - [x] Sorting
-    - [ ] Merge
-    - [ ] Set (Union, Intersection, Difference)
+    - [x] Deduplicate elements https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
+    - [x] Linked list Sorting
+    - [x] Merge https://leetcode.cn/problems/merge-two-sorted-lists
+    - [x] Set (Union, Intersection, Difference) https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
     - [x] Search
-        - [ ] Is Echo Linked List
-        - [ ] Find Middle(dual pointer)
-        - [ ] Find Last Kth
+        - [x] Is Palindrome Linked List + find middle + reverse https://leetcode.cn/problems/palindrome-linked-list/
+        - [x] Find Middle(dual pointer) https://leetcode.cn/problems/middle-of-the-linked-list
+        - [x] Find Last Kth https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
+    - [x] Reverse https://leetcode.cn/problems/reverse-linked-list/
 4. [x] Sequence List
-    - [x] Remove Duplicate
+    - [x] Deduplicate elements
     - [x] Sorting
 
 ## CH3
@@ -29,5 +31,10 @@
 8. [x] N Queens Problems https://leetcode.cn/problems/n-queens/
 
 ## CH4
+1. [x] String Data Structure
+   1. [x] Brutal Force Pattern Matching
+   2. [x] KMP Pattern Matching
 
 ## CH5
+1. [x] Binary Tree 
+2. [x] Huffman Tree
