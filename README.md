@@ -29,12 +29,23 @@
 6. [x] Linked Stack
 7. [x] Sequence Stack
 8. [x] N Queens Problems https://leetcode.cn/problems/n-queens/
+9. [x] Reverse Polish Notation https://leetcode.cn/problems/evaluate-reverse-polish-notation/
+10. Implement queue using stack https://leetcode.cn/problems/implement-queue-using-stacks/
 
 ## CH4
+
 1. [x] String Data Structure
-   1. [x] Brutal Force Pattern Matching
-   2. [x] KMP Pattern Matching
+    1. [x] Brutal Force Pattern Matching
+    2. [x] KMP Pattern Matching
 
 ## CH5
-1. [x] Binary Tree 
+
+1. [x] Binary (Search) Tree
 2. [x] Huffman Tree
+3. [x] Huffman Coding
+4. [x] AVL Tree
+5. [x] All requirements for trees
+
+## CH6
+
+1. [ ] Hash table

@@ -1,0 +1,14 @@
+//
+// Created by yn on 23/11/2022.
+//
+
+#ifndef SINGLYLINKEDLIST_CPP_HASHTABLE_H
+#define SINGLYLINKEDLIST_CPP_HASHTABLE_H
+
+
+class HashTable {
+
+};
+
+
+#endif //SINGLYLINKEDLIST_CPP_HASHTABLE_H
