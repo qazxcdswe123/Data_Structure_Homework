@@ -31,8 +31,6 @@ public:
 
     void deleteTree(TreeNode<T> *&node);
 
-
-
     void insert(T value, TreeNode<T> *node, bool isLeftChild);
 
     void inOrderTreeWalk(TreeNode<T> *node);

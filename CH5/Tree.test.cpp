@@ -3,6 +3,7 @@
 //
 #include "BinaryTree.cpp"
 #include "HuffmanTree.cpp"
+#include "AVLTree.cpp"
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -66,6 +67,25 @@ TEST_CASE("Huffman Tree", "[HuffmanTree]") {
             int weight = 0;
             Tree.computeWeightOfTree(Tree.getRoot(), weight);
             REQUIRE(weight != originalWeight);
+        }
+    }
+}
+
+TEST_CASE("AVL Tree", "[AVLTree]") {
+    SECTION("INIT") {
+        AVLTree<int> tree;
+        tree.insert(tree.getRoot(), 2);
+        tree.insert(tree.getRoot(), 5);
+        tree.insert(tree.getRoot(), 10);
+        tree.insert(tree.getRoot(), 20);
+        tree.insert(tree.getRoot(), 30);
+
+        SECTION("Test deletion") {
+            tree.preOrder(tree.getRoot());
+            std::cout << std::endl;
+            tree.deleteNode(tree.getRoot(), 10);
+            tree.deleteNode(tree.getRoot(), 20);
+            tree.preOrder(tree.getRoot());
         }
     }
 }
