@@ -1,0 +1,14 @@
+//
+// Created by yn on 4/12/2022.
+//
+
+#ifndef SINGLYLINKEDLIST_CPP_MATRIXGRAPH_H
+#define SINGLYLINKEDLIST_CPP_MATRIXGRAPH_H
+
+
+class MatrixGraph {
+
+};
+
+
+#endif //SINGLYLINKEDLIST_CPP_MATRIXGRAPH_H

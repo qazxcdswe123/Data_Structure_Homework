@@ -30,7 +30,7 @@
 7. [x] Sequence Stack
 8. [x] N Queens Problems https://leetcode.cn/problems/n-queens/
 9. [x] Reverse Polish Notation https://leetcode.cn/problems/evaluate-reverse-polish-notation/
-10. Implement queue using stack https://leetcode.cn/problems/implement-queue-using-stacks/
+10. [x] Implement queue using stack https://leetcode.cn/problems/implement-queue-using-stacks/
 
 ## CH4
 

@@ -26,6 +26,7 @@ private:
     int capacity;
     Vertex<V, E> *vertices;
 
+    // return the index of the vertex in the vertices array, -1 if not found
     int getVertexIndex(V vertex) const;
 
 public:
@@ -45,7 +46,23 @@ public:
 
     bool searchEdge(V from, V to) const;
 
-    void print() const;
+    void recursiveDFSPrint(V vertex, bool *visited) const;
+
+    void iterativeDFSPrint(V vertex) const;
+
+    void BFSPrint(V vertex) const;
+
+    bool relax(V from, V to, E weight);
+
+    int Dijkstra(V from, V to, int path[]) const;
+
+    int BellmanFord(V from, V to, int path[]) const;
+
+    int Kruskal(V from, V to, int path[]) const;
+
+    int Prim(V from, V to, int path[]) const;
+
+    int Floyd_Warshall(V from, V to, int path[]) const;
 };
 
 
