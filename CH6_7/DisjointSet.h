@@ -1,7 +1,3 @@
-//
-// Created by yn on 4/12/2022.
-//
-
 #ifndef SINGLYLINKEDLIST_CPP_DISJOINTSET_H
 #define SINGLYLINKEDLIST_CPP_DISJOINTSET_H
 

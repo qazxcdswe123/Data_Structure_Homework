@@ -11,5 +11,5 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2)
-add_executable(CH6_7_Tests HashTable.test.cpp)
+add_executable(CH6_7_Tests HashTable.test.cpp Graph.test.cpp)
 target_link_libraries(CH6_7_Tests PRIVATE Catch2::Catch2WithMain)

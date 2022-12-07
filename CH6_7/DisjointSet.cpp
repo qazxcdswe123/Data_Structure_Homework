@@ -1,7 +1,3 @@
-//
-// Created by yn on 4/12/2022.
-//
-
 #include "DisjointSet.h"
 
 DisjointSet::DisjointSet(int numVertices) {

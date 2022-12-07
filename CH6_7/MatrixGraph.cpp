@@ -1,7 +1,3 @@
-//
-// Created by yn on 4/12/2022.
-//
-
 #include "MatrixGraph.h"
 #include "DisjointSet.h"
 
@@ -287,20 +283,22 @@ void MatrixGraph<T>::printMSTKruskal() {
     for (int i = 0; i < numVertices; i++) {
         for (int j = 0; j < numVertices; j++) {
             if (adjMatrix[i][j] != INT32_MAX) {
-                edges.push_back(Edge(i, j, adjMatrix[i][j]));
+                edges.emplace_back(i, j, adjMatrix[i][j]);
             }
         }
     }
-    std::sort(edges.begin(), edges.end());
+    std::sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+        return a.weight < b.weight;
+    });
 
     // Create a disjoint set
     DisjointSet set(numVertices);
 
     // Loop until all vertices are visited
     std::cout << "MST: ";
-    for (int i = 0; i < edges.size(); i++) {
-        int u = edges[i].source;
-        int v = edges[i].dest;
+    for (auto &edge: edges) {
+        int u = edge.source;
+        int v = edge.dest;
 
         // Check if the edge forms a cycle
         if (set.find(u) != set.find(v)) {
