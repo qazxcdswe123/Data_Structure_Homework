@@ -44,8 +44,11 @@
 2. [x] Huffman Tree
 3. [x] Huffman Coding
 4. [x] AVL Tree
-5. [x] All requirements for trees
+5. [x] All required operations for trees
+6. [x] Is Complete Binary Tree https://leetcode-cn.com/problems/check-completeness-of-a-binary-tree/
 
-## CH6
+## CH6 and CH7
 
-1. [ ] Hash table
+1. [x] Hash table
+2. [x] Disjoint Set
+3. [x] Graph(Using Adjacency Matrix)
